@@ -1,0 +1,66 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import { footerContent } from "../data/content";
+import { buildWhatsAppUrl, navigation, site } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="#beranda" class="footer-logo" aria-label="D'titans Food, kembali ke bagian awal">
+          <Logo loading="lazy" class="footer-logo-image" />
+        </a>
+        <p class="footer-tagline">{footerContent.tagline}</p>
+      </div>
+
+      <nav aria-labelledby="footer-nav-title">
+        <h2 id="footer-nav-title" class="footer-heading">{footerContent.navigationHeading}</h2>
+        <ul class="footer-links">
+          {
+            navigation.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+          <li><a href="#ebook">E-book</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="footer-heading">{footerContent.contactHeading}</h2>
+        <ul class="footer-links footer-contact">
+          <li>
+            <a
+              href={buildWhatsAppUrl(site.generalMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{footerContent.whatsappLabel}</span>
+              <Icon name="arrow-up-right" size={16} />
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{footerContent.instagramLabel}</span>
+              <Icon name="arrow-up-right" size={16} />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} D'titans Food. Semua hak dilindungi.</p>
+      <p>{footerContent.note}</p>
+    </div>
+  </div>
+</footer>

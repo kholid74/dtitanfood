@@ -1,0 +1,149 @@
+---
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+import WhatsAppLink from "./WhatsAppLink.astro";
+import { navigation, site } from "../data/site";
+---
+
+<header class="site-header" data-site-header>
+  <div class="shell header-inner">
+    <a href="#beranda" class="brand" aria-label="D'titans Food, kembali ke bagian awal">
+      <Logo class="brand-logo" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navigasi utama">
+      {
+        navigation.map((item) => (
+          <a href={item.href} class="nav-link">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="header-actions">
+      <WhatsAppLink
+        label="Pesan"
+        message={site.generalMessage}
+        variant="solid"
+        class="header-mobile-cta"
+        ariaLabel="Pesan via WhatsApp"
+      />
+      <WhatsAppLink
+        label="Pesan Sekarang"
+        message={site.generalMessage}
+        variant="outline"
+        class="header-cta"
+        ariaLabel="Pesan Sekarang via WhatsApp"
+      />
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-haspopup="dialog"
+        data-menu-open
+      >
+        <span>Menu</span>
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<dialog
+  id="mobile-menu"
+  class="mobile-menu"
+  aria-labelledby="mobile-menu-title"
+>
+  <div class="shell mobile-menu-inner">
+    <div class="mobile-menu-head">
+      <p id="mobile-menu-title" class="mobile-menu-title">Menu</p>
+      <button type="button" class="menu-close" data-menu-close>
+        <span>Tutup</span>
+        <Icon name="close" size={20} />
+      </button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Navigasi seluler">
+      <ul>
+        {
+          navigation.map((item) => (
+            <li>
+              <a href={item.href} class="mobile-nav-link">
+                <span>{item.label}</span>
+                <Icon name="arrow-up-right" size={20} />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="mobile-menu-footer">
+      <WhatsAppLink
+        label="Tanyakan via WhatsApp"
+        message={site.generalMessage}
+        variant="solid"
+        class="mobile-menu-cta"
+      />
+      <a
+        href={site.instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        <span>Instagram</span>
+        <Icon name="arrow-up-right" />
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const menu = document.querySelector<HTMLDialogElement>("#mobile-menu");
+  const openButton = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+  const closeButton = document.querySelector<HTMLButtonElement>("[data-menu-close]");
+
+  const updateHeader = () => {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  };
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+
+  if (menu && openButton) {
+    const openMenu = () => {
+      if (menu.open) return;
+      menu.showModal();
+      document.documentElement.classList.add("menu-open");
+      openButton.setAttribute("aria-expanded", "true");
+    };
+
+    const closeMenu = () => {
+      if (menu.open) menu.close();
+    };
+
+    openButton.addEventListener("click", openMenu);
+    closeButton?.addEventListener("click", closeMenu);
+
+    menu.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    menu.addEventListener("close", () => {
+      document.documentElement.classList.remove("menu-open");
+      openButton.setAttribute("aria-expanded", "false");
+    });
+
+    menu.addEventListener("click", (event) => {
+      if (event.target === menu) closeMenu();
+    });
+
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    desktopQuery.addEventListener("change", (event) => {
+      if (event.matches) closeMenu();
+    });
+  }
+</script>

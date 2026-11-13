@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/brand/logo.png";
+
+interface Props {
+  class?: string;
+  loading?: "eager" | "lazy";
+}
+
+const { class: className = "", loading = "eager" } = Astro.props;
+---
+
+<Image
+  src={logo}
+  alt="D'titans Food — Homemade Food & Catering"
+  width={320}
+  height={213}
+  loading={loading}
+  decoding="async"
+  class={className}
+/>

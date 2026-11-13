@@ -1,0 +1,54 @@
+---
+import Icon from "./Icon.astro";
+import { ebookContent } from "../data/content";
+import { isConfiguredUrl, site } from "../data/site";
+
+const purchaseReady = isConfiguredUrl(site.ebookPurchaseUrl);
+---
+
+<section id="ebook" class="section ebook" aria-labelledby="ebook-title">
+  <div class="shell ebook-grid">
+    <div
+      class="book-stage"
+      role="img"
+      aria-label="Pratinjau sampul e-book From Our Kitchen dengan sampul sementara."
+    >
+      <div class="book" aria-hidden="true">
+        <div class="book-pages"></div>
+        <div class="book-cover">
+          <span class="book-brand">D'TITANS FOOD</span>
+          <span class="book-rule"></span>
+          <p class="book-title">Dari<br /><em>Dapur</em><br />Kami</p>
+          <span class="book-kicker">{ebookContent.coverKicker}</span>
+          <span class="book-note">{ebookContent.coverNote}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ebook-copy">
+      <h2 id="ebook-title" class="ebook-title display-lg">
+        {ebookContent.heading.lead} <em>{ebookContent.heading.accent}</em>
+      </h2>
+      <p class="ebook-intro">{ebookContent.intro}</p>
+      <p id="ebook-status" class="ebook-status">{ebookContent.status}</p>
+
+      {
+        purchaseReady ? (
+          <a
+            class="btn btn--caramel"
+            href={site.ebookPurchaseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{ebookContent.availableCta}</span>
+            <Icon name="arrow-up-right" />
+          </a>
+        ) : (
+          <span class="btn btn--disabled" aria-disabled="true">
+            <span>{ebookContent.cta}</span>
+          </span>
+        )
+      }
+    </div>
+  </div>
+</section>

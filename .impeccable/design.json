@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T13:30:00+07:00",
+  "title": "Design System: D'titans Food",
+  "extensions": {
+    "colorMeta": {
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Warm Ivory",
+        "canonical": "#F7F1E7",
+        "tonalRamp": ["#372B15", "#644D26", "#906F37", "#BA904A", "#CBAB76", "#DCC6A3", "#EDE2CF", "#F8F4ED"]
+      },
+      "ivory-deep": {
+        "role": "neutral",
+        "displayName": "Paper Shade",
+        "canonical": "#EFE4D3",
+        "tonalRamp": ["#362A16", "#624B28", "#8D6C3A", "#B78D4E", "#C8A979", "#DAC5A4", "#ECE1D0", "#F8F3ED"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#262626", "#454545", "#636363", "#828282", "#A1A1A1", "#BFBFBF", "#DEDEDE", "#F2F2F2"]
+      },
+      "chocolate": {
+        "role": "primary",
+        "displayName": "Chocolate Ink",
+        "canonical": "#552D1C",
+        "tonalRamp": ["#381F15", "#643826", "#915136", "#BB6B49", "#CB8F76", "#DCB4A2", "#EDD8CF", "#F8F0EC"]
+      },
+      "chocolate-deep": {
+        "role": "neutral",
+        "displayName": "Deep Cocoa",
+        "canonical": "#3D2014",
+        "tonalRamp": ["#381F15", "#643825", "#915136", "#BB6A49", "#CC8F76", "#DCB3A2", "#EDD8CF", "#F8F0EC"]
+      },
+      "caramel": {
+        "role": "secondary",
+        "displayName": "Caramel Gold",
+        "canonical": "#C98A48",
+        "tonalRamp": ["#392714", "#674623", "#946533", "#BF8345", "#CFA272", "#DEC0A0", "#EEDECE", "#F8F2EC"]
+      },
+      "caramel-ink": {
+        "role": "secondary",
+        "displayName": "Caramel Ink",
+        "canonical": "#8B5A28",
+        "tonalRamp": ["#392613", "#674523", "#956432", "#C08344", "#D0A172", "#DFC0A0", "#EEDECD", "#F9F2EC"]
+      },
+      "caramel-soft": {
+        "role": "tertiary",
+        "displayName": "Caramel Soft",
+        "canonical": "#E7C39A",
+        "tonalRamp": ["#3B2811", "#6B471F", "#9B672C", "#C7873D", "#D5A46C", "#E3C29C", "#F0DFCB", "#F9F3EB"]
+      },
+      "cream-muted": {
+        "role": "neutral",
+        "displayName": "Cream Muted",
+        "canonical": "#D8C2B2",
+        "tonalRamp": ["#32241B", "#594231", "#815F46", "#A77C5D", "#BC9C85", "#D2BCAC", "#E8DCD4", "#F6F2EE"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#6B5347",
+        "tonalRamp": ["#2D241F", "#514138", "#765D51", "#997A6B", "#B29B8F", "#CBBBB4", "#E4DCD8", "#F5F1F0"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The hero promise only; two or three deliberate lines." },
+      "headline": { "displayName": "Headline", "purpose": "Short section openings with a single italic accent." },
+      "title": { "displayName": "Title", "purpose": "Menu items, services, and story subheads." },
+      "body": { "displayName": "Body", "purpose": "Reading copy and supporting descriptions." },
+      "label": { "displayName": "Label", "purpose": "Buttons, links, metadata, and the menu index." }
+    },
+    "shadows": [
+      { "name": "photo-print", "value": "0 24px 60px rgba(61, 32, 20, 0.12)", "purpose": "The hero photograph only, so it reads as a physical print lifting off the page." },
+      { "name": "book-lift", "value": "drop-shadow(0 28px 38px rgba(0, 0, 0, 0.35))", "purpose": "The e-book cover object, establishing its physical thickness." }
+    ],
+    "motion": [
+      { "name": "ease-editorial", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The hero image reveal and photo hover settles." },
+      { "name": "ease-interface", "value": "220ms ease", "purpose": "Button, border, and color state changes." },
+      { "name": "menu-in", "value": "320ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The mobile navigation dialog entrance." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1100px" },
+      { "name": "2xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The WhatsApp and primary conversion action on warm paper.",
+      "html": "<a class='ds-btn-primary' href='#'><span>Tanyakan via WhatsApp</span><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M7 17 17 7M8 7h9v9'/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:12px;padding:12.8px 20.8px;border:1px solid var(--color-chocolate,#552D1C);border-radius:2px;background:var(--color-chocolate,#552D1C);color:var(--color-ivory,#F7F1E7);font-family:'DM Sans','Segoe UI',sans-serif;font-size:13px;font-weight:500;line-height:1;letter-spacing:.01em;text-decoration:none;transition:background-color 220ms ease,color 220ms ease,border-color 220ms ease;}.ds-btn-primary:hover{background:var(--color-caramel,#C98A48);border-color:var(--color-caramel,#C98A48);color:var(--color-chocolate-deep,#3D2014);}.ds-btn-primary:hover svg{transform:translate(2px,-2px);}.ds-btn-primary svg{transition:transform 260ms cubic-bezier(.16,1,.3,1);}.ds-btn-primary:focus-visible{outline:2px solid currentColor;outline-offset:4px;}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "A secondary header action on warm paper.",
+      "html": "<a class='ds-btn-outline' href='#'><span>Pesan Sekarang</span><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M7 17 17 7M8 7h9v9'/></svg></a>",
+      "css": ".ds-btn-outline{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:12px;padding:12.8px 20.8px;border:1px solid rgba(85,45,28,.34);border-radius:2px;background:transparent;color:var(--color-chocolate,#552D1C);font-family:'DM Sans','Segoe UI',sans-serif;font-size:13px;font-weight:500;line-height:1;letter-spacing:.01em;text-decoration:none;transition:background-color 220ms ease,color 220ms ease,border-color 220ms ease;}.ds-btn-outline:hover{background:var(--color-chocolate,#552D1C);border-color:var(--color-chocolate,#552D1C);color:var(--color-ivory,#F7F1E7);}.ds-btn-outline:hover svg{transform:translate(2px,-2px);}.ds-btn-outline svg{transition:transform 260ms cubic-bezier(.16,1,.3,1);}.ds-btn-outline:focus-visible{outline:2px solid currentColor;outline-offset:4px;}"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "description": "A secondary action on a chocolate field.",
+      "html": "<a class='ds-btn-light' href='#'><span>Tanyakan kategori ini</span><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M7 17 17 7M8 7h9v9'/></svg></a>",
+      "css": ".ds-btn-light{display:inline-flex;min-height:40px;align-items:center;justify-content:center;gap:10px;padding:10px 0;border:0;background:transparent;color:var(--color-ivory,#F7F1E7);font-family:'DM Sans','Segoe UI',sans-serif;font-size:13px;font-weight:500;line-height:1.4;letter-spacing:.01em;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.34em;text-decoration-color:rgba(247,241,231,.38);transition:color 200ms ease,text-decoration-color 200ms ease;}.ds-btn-light:hover{color:var(--color-caramel-soft,#E7C39A);text-decoration-color:currentColor;}.ds-btn-light:hover svg{transform:translate(2px,-2px);}.ds-btn-light svg{transition:transform 260ms cubic-bezier(.16,1,.3,1);}.ds-btn-light:focus-visible{outline:2px solid var(--color-caramel-soft,#E7C39A);outline-offset:4px;}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "The quiet secondary action used inside menu rows and editorial sections.",
+      "html": "<a class='ds-text-link' href='#'><span>Tanyakan menu ini</span><svg width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M7 17 17 7M8 7h9v9'/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;min-height:24px;align-items:center;gap:9px;color:var(--color-chocolate,#552D1C);font-family:'DM Sans','Segoe UI',sans-serif;font-size:13px;font-weight:500;line-height:1.4;letter-spacing:.005em;text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:.34em;text-decoration-color:rgba(85,45,28,.35);transition:color 200ms ease,text-decoration-color 200ms ease;}.ds-text-link:hover{text-decoration-color:currentColor;}.ds-text-link:hover svg{transform:translate(2px,-2px);}.ds-text-link svg{flex:none;transition:transform 260ms cubic-bezier(.16,1,.3,1);}.ds-text-link:focus-visible{outline:2px solid currentColor;outline-offset:4px;}"
+    },
+    {
+      "name": "Menu Ledger Row",
+      "kind": "custom",
+      "refersTo": "menu-row",
+      "description": "The signature menu index: a square photographic plate beside a serif product name, a short note, and an inline action.",
+      "html": "<article class='ds-menu-row'><div class='ds-menu-thumb' aria-hidden='true'></div><div class='ds-menu-copy'><div class='ds-menu-head'><h3>Nasi Goreng Kampung</h3><span>01</span></div><p>Nasi goreng dengan aroma bawang, telur, dan sayuran hijau—gurih, hangat, dan akrab di meja.</p><a class='ds-menu-link' href='#'>Tanyakan menu ini <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M7 17 17 7M8 7h9v9'/></svg></a></div></article>",
+      "css": ".ds-menu-row{display:grid;grid-template-columns:152px minmax(0,1fr);gap:32px;padding:32px 0;border-bottom:1px solid rgba(85,45,28,.16);background:var(--color-white,#FFFFFF);color:var(--color-chocolate,#552D1C);}.ds-menu-thumb{aspect-ratio:3/4;border:1px solid rgba(85,45,28,.16);background:var(--color-ivory,#F7F1E7);}.ds-menu-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;}.ds-menu-copy h3{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:500;line-height:1.03;letter-spacing:-.018em;}.ds-menu-head span{color:var(--color-caramel-ink,#8B5A28);font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;font-variant-numeric:tabular-nums;}.ds-menu-copy p{max-width:42ch;margin:9px 0 0;color:var(--color-ink-muted,#6B5347);font-family:'DM Sans','Segoe UI',sans-serif;font-size:14.4px;line-height:1.65;}.ds-menu-link{display:inline-flex;gap:8px;margin-top:14px;color:var(--color-chocolate,#552D1C);font-family:'DM Sans','Segoe UI',sans-serif;font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:.34em;text-decoration-color:rgba(85,45,28,.35);}.ds-menu-link:hover{text-decoration-color:currentColor;}.ds-menu-link:focus-visible{outline:2px solid currentColor;outline-offset:4px;}@media(max-width:600px){.ds-menu-row{grid-template-columns:104px minmax(0,1fr);gap:18px;padding:24px 0;}.ds-menu-copy h3{font-size:25px;}.ds-menu-copy p{font-size:14px;}}"
+    },
+    {
+      "name": "Locked Platform Roster",
+      "kind": "custom",
+      "refersTo": "locked-platform",
+      "description": "An honest unavailable state for a food-platform link not yet configured.",
+      "html": "<div class='ds-platform-row' role='list'><div class='ds-platform' role='listitem' aria-disabled='true'><span class='ds-platform-name'>GoFood<small>Segera hadir</small></span></div><div class='ds-platform' role='listitem' aria-disabled='true'><span class='ds-platform-name'>ShopeeFood<small>Segera hadir</small></span></div><div class='ds-platform' role='listitem' aria-disabled='true'><span class='ds-platform-name'>GrabFood<small>Segera hadir</small></span></div></div>",
+      "css": ".ds-platform-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,464px);overflow:hidden;border:1px solid rgba(85,45,28,.16);background:var(--color-white,#FFFFFF);}.ds-platform{display:flex;min-height:84px;align-items:center;justify-content:center;padding:12px 8px;border-left:1px solid rgba(85,45,28,.16);color:var(--color-chocolate,#552D1C);text-align:center;cursor:default;}.ds-platform:first-child{border-left:0;}.ds-platform-name{display:flex;flex-direction:column;gap:6px;font-family:'DM Sans','Segoe UI',sans-serif;font-size:12.5px;font-weight:600;line-height:1.15;letter-spacing:-.015em;}.ds-platform-name small{color:var(--color-caramel-ink,#8B5A28);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Kitchen Ledger",
+    "overview": "D'titans Food should feel like a warm, well-kept kitchen notebook rather than a catering brochure. The system is built from uncoated paper, chocolate ink, caramel thread, printed photographs, and generous pauses between thoughts. Its job is to make home cooking feel considered and personal, not corporate. The page moves in alternating fields: warm ivory for editorial calm, white for the menu index, deep chocolate for catering and the recipe book, and one committed caramel field for the kitchen's principles. Typography carries the hierarchy; photography carries the appetite; rules and small tabular numbers carry the sense of a ledger kept by hand. The composition is deliberately asymmetric, but the reading order stays obvious. Confirmed rejection: no generic SaaS dashboard styling, no equal-card feature grid, no glossy product-platform claims. Placeholder photography, draft menu copy, and unavailable platform links must be visibly identified until the real material replaces them.",
+    "keyCharacteristics": [
+      "Warm Ivory and White paper fields, Chocolate ink, Caramel Gold as the singular thread.",
+      "Oversized Cormorant Garamond display paired with quiet DM Sans utility text.",
+      "Hairline rules, menu-ledger rows, tabular numerals, and square photo plates.",
+      "Photographs treated as printed material rather than floating rounded cards.",
+      "One committed caramel field and two deep chocolate fields create a strong, warm rhythm.",
+      "Motion is restrained: a single hero reveal, confident hover states, reduced-motion always honored."
+    ],
+    "rules": [
+      { "name": "The One Warm Field Rule", "body": "Caramel is an event. One full caramel section per page; everywhere else it is a thread, never a background wash.", "section": "colors" },
+      { "name": "The Legibility First Rule", "body": "Small text never sits directly in Caramel Gold on Ivory or White. Use Caramel Ink on light grounds and Caramel Soft on chocolate grounds.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "Cormorant never handles interface instructions, and DM Sans never carries a display headline. The hierarchy depends on keeping those roles absolute.", "section": "typography" },
+      { "name": "The Short Thought Rule", "body": "Display and headline text should break into two or three deliberate lines. Avoid full-width paragraphs set in serif.", "section": "typography" },
+      { "name": "The Ledger Beat Rule", "body": "Every section opens with more space above its heading than below it, then introduces a one-pixel rule before dense repeated content. Repeated items align on a shared left edge even when imagery offsets the rhythm.", "section": "layout" },
+      { "name": "The Printed Plate Rule", "body": "Images are rectangular prints with square corners and a hairline edge. Do not turn them into floating rounded cards or apply glass effects.", "section": "elevation" },
+      { "name": "The Straight Edge Rule", "body": "If a new element needs to feel premium, reduce its radius rather than adding one. Paper does not have pills.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do use Warm Ivory and Paper White for long reading surfaces, with Chocolate Ink as the default text.",
+      "Do keep Caramel Gold to one full field, thin rules, and small deliberate accents.",
+      "Do set display headings in Cormorant Garamond with italic emphasis on the second thought.",
+      "Do use square photographs with hairline edges and soft print-style shadows only where a physical object is implied.",
+      "Do preserve the 82rem shell, asymmetric grids, and the 7/5 gallery rhythm.",
+      "Do mark synthetic or placeholder photography and keep unavailable actions visibly unavailable.",
+      "Do give primary controls at least 44px of touch height and keep visible keyboard focus.",
+      "Do respect prefers-reduced-motion; the hero reveal is the page's single authored motion moment."
+    ],
+    "donts": [
+      "Don't introduce a second accent hue, gradient text, or a second display face.",
+      "Don't turn the menu, services, or story into equal rounded cards with shadows.",
+      "Don't use DM Sans for display headings or Cormorant for interface labels.",
+      "Don't place small Caramel Gold text on Ivory or White; use Caramel Ink or Chocolate.",
+      "Don't round photographs, book surfaces, or large fields; 2px is the interactive ceiling.",
+      "Don't fill empty space with generic icon tiles, decorative sparklines, or badge rows.",
+      "Don't claim a platform integration, live order link, price, package, or lead time that the business has not supplied.",
+      "Don't recreate or approximate the D'titans Food logo; use the supplied asset unaltered."
+    ]
+  }
+}

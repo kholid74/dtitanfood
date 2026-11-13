@@ -1,0 +1,27 @@
+---
+import { whyContent } from "../data/content";
+---
+
+<section id="kenapa-kami" class="section why" aria-labelledby="why-title">
+  <div class="shell">
+    <div class="why-head">
+      <h2 id="why-title" class="display-lg why-title">
+        {whyContent.heading.lead} <em>{whyContent.heading.accent}</em>
+      </h2>
+      <p class="why-intro">{whyContent.intro}</p>
+    </div>
+
+    <div class="why-grid">
+      {
+        whyContent.items.map((item) => (
+          <article class="why-item">
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="why-closing">{whyContent.closing}</p>
+  </div>
+</section>

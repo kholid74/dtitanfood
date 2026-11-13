@@ -1,0 +1,41 @@
+---
+import WhatsAppLink from "./WhatsAppLink.astro";
+import { orderContent } from "../data/content";
+import { site } from "../data/site";
+---
+
+<section id="cara-pesan" class="section order" aria-labelledby="order-title">
+  <div class="shell">
+    <div class="order-head">
+      <h2 id="order-title" class="display-lg order-title">
+        {orderContent.heading.lead} <em>{orderContent.heading.accent}</em>
+      </h2>
+      <div class="order-intro-wrap">
+        <p class="order-intro">{orderContent.intro}</p>
+        <WhatsAppLink
+          label={orderContent.cta}
+          message={site.generalMessage}
+          variant="solid"
+        />
+      </div>
+    </div>
+
+    <ol class="order-steps">
+      {
+        orderContent.steps.map((step, index) => (
+          <li class="order-step">
+            <span class="order-step-number" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="order-note">{orderContent.note}</p>
+  </div>
+</section>

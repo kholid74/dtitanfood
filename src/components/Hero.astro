@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+
+import heroImage from "../assets/images/hero/hero.jpg";
+import Icon from "./Icon.astro";
+import WhatsAppLink from "./WhatsAppLink.astro";
+import { heroContent } from "../data/content";
+import { site } from "../data/site";
+---
+
+<section id="beranda" class="hero" aria-labelledby="hero-title">
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <h1
+        id="hero-title"
+        class="hero-title"
+        aria-label={`${heroContent.heading.lead} ${heroContent.heading.prefix} ${heroContent.heading.accent}`}
+      >
+        <span class="hero-line">{heroContent.heading.lead}</span>
+        <span class="hero-line">
+          {heroContent.heading.prefix} <em>{heroContent.heading.accent}</em>
+        </span>
+      </h1>
+
+      <div class="hero-details">
+        <p class="hero-description">{heroContent.description}</p>
+
+        <div class="hero-actions">
+          <WhatsAppLink
+            label={heroContent.primaryCta}
+            message={site.generalMessage}
+            variant="solid"
+          />
+          <a href="#favorit" class="text-link">
+            <span>{heroContent.secondaryCta}</span>
+            <Icon name="arrow-down" />
+          </a>
+        </div>
+
+        <p class="hero-note">{heroContent.conversationNote}</p>
+      </div>
+    </div>
+
+    <figure class="hero-media">
+      <div class="hero-photo">
+        <Image
+          src={heroImage}
+          alt="Ilustrasi daging panggang dengan sayuran hijau, cabai, dan saus di atas meja kayu."
+          widths={[480, 720, 1000]}
+          sizes="(min-width: 1024px) 41vw, (min-width: 768px) 88vw, 92vw"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+      <figcaption class="hero-caption">{heroContent.imageCaption}</figcaption>
+    </figure>
+  </div>
+
+  <div class="hero-services">
+    <div class="shell hero-services-inner">
+      <p class="hero-services-note">Untuk meja sehari-hari &amp; acara yang lebih besar.</p>
+      <nav aria-label="Jelajahi layanan">
+        <ul class="hero-services-links">
+          {
+            heroContent.quickLinks.map((link) => (
+              <li>
+                <a href={link.href} class="hero-service-link">
+                  <span>{link.label}</span>
+                  <Icon name="arrow-right" size={15} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>

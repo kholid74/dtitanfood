@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+
+import kitchenImage from "../assets/images/story/rempah.jpg";
+import Icon from "./Icon.astro";
+import { storyContent } from "../data/content";
+---
+
+<section id="cerita" class="section story" aria-labelledby="story-title">
+  <div class="shell story-grid">
+    <div class="story-copy">
+      <h2 id="story-title" class="display-lg story-title">
+        {storyContent.heading.lead} <em>{storyContent.heading.accent}</em>
+      </h2>
+
+      {
+        storyContent.paragraphs.map((paragraph, index) => (
+          <p class:list={["story-paragraph", { "story-lead": index === 0 }]}>
+            {paragraph}
+          </p>
+        ))
+      }
+
+      <blockquote class="story-quote">
+        <p>{storyContent.pullQuote}</p>
+      </blockquote>
+
+      <a href="#galeri" class="text-link story-cta">
+        <span>{storyContent.cta}</span>
+        <Icon name="arrow-down" />
+      </a>
+    </div>
+
+    <figure class="story-media">
+      <div class="story-photo">
+        <Image
+          src={kitchenImage}
+          alt="Ilustrasi aneka bumbu dan rempah Indonesia di atas meja kayu."
+          widths={[540, 800, 1200]}
+          sizes="(min-width: 1024px) 46vw, 90vw"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <figcaption class="story-caption">{storyContent.imageCaption}</figcaption>
+    </figure>
+  </div>
+</section>

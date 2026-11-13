@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+
+import { galleryItems } from "../data/gallery";
+import { galleryContent } from "../data/content";
+
+const layoutClasses = [
+  "gallery-item--lead",
+  "gallery-item--portrait",
+  "gallery-item--portrait",
+  "gallery-item--wide",
+  "gallery-item--square",
+  "gallery-item--square",
+];
+
+const sizeHints = [
+  "(min-width: 768px) 58vw, 100vw",
+  "(min-width: 768px) 42vw, 50vw",
+  "(min-width: 768px) 42vw, 50vw",
+  "(min-width: 768px) 58vw, 100vw",
+  "(min-width: 768px) 50vw, 50vw",
+  "(min-width: 768px) 50vw, 50vw",
+];
+---
+
+<section id="galeri" class="section gallery" aria-labelledby="gallery-title">
+  <div class="shell">
+    <div class="gallery-head">
+      <h2 id="gallery-title" class="display-lg gallery-title">
+        {galleryContent.heading.lead} <em>{galleryContent.heading.accent}</em>
+      </h2>
+      <p class="gallery-intro">{galleryContent.intro}</p>
+    </div>
+
+    <div class="gallery-grid">
+      {
+        galleryItems.map((item, index) => (
+          <figure class:list={["gallery-item", layoutClasses[index]]}>
+            <Image
+              src={item.image}
+              alt={item.alt}
+              widths={[480, 800, 1200]}
+              sizes={sizeHints[index]}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="gallery-footnotes">
+      <p>{galleryContent.footnote}</p>
+      <p>
+        <a
+          href={galleryContent.creditHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {galleryContent.credit}
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

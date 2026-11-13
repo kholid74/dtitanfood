@@ -1,0 +1,41 @@
+---
+import Icon from "./Icon.astro";
+import { buildWhatsAppUrl, site } from "../data/site";
+
+interface Props {
+  label: string;
+  message?: string;
+  variant?: "solid" | "outline" | "light" | "text" | "text-light";
+  class?: string;
+  icon?: boolean;
+  ariaLabel?: string;
+}
+
+const {
+  label,
+  message = site.generalMessage,
+  variant = "solid",
+  class: className = "",
+  icon = true,
+  ariaLabel,
+} = Astro.props;
+
+const variantClass: Record<NonNullable<Props["variant"]>, string> = {
+  solid: "btn btn--solid",
+  outline: "btn btn--outline",
+  light: "btn btn--light",
+  text: "text-link",
+  "text-light": "text-link text-link--light",
+};
+---
+
+<a
+  href={buildWhatsAppUrl(message)}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={ariaLabel}
+  class:list={[variantClass[variant], className]}
+>
+  <span>{label}</span>
+  {icon && <Icon name="arrow-up-right" />}
+</a>

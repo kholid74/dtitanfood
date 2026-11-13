@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+
+import WhatsAppLink from "./WhatsAppLink.astro";
+import { favoritesContent } from "../data/content";
+import { products } from "../data/products";
+---
+
+<section id="favorit" class="section favorites" aria-labelledby="favorites-title">
+  <div class="shell favorites-grid">
+    <div class="favorites-intro">
+      <h2 id="favorites-title" class="display-lg favorites-title">
+        {favoritesContent.heading.lead} <em>{favoritesContent.heading.accent}</em>
+      </h2>
+      <p class="favorites-description">{favoritesContent.intro}</p>
+      <p class="favorites-note">{favoritesContent.note}</p>
+      <WhatsAppLink
+        label={favoritesContent.generalCta}
+        message="Halo D'titans Food, saya ingin bertanya tentang menu favorit dan ketersediaannya."
+        variant="text"
+        ariaLabel="Tanyakan menu lain via WhatsApp"
+      />
+    </div>
+
+    <ol class="menu-ledger" aria-label="Daftar menu favorit">
+      {
+        products.map((product, index) => (
+          <li class="menu-row">
+            <figure class="menu-photo">
+              <Image
+                src={product.image}
+                alt={product.alt}
+                widths={[224, 360, 540]}
+                sizes="(min-width: 768px) 176px, 112px"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <div class="menu-copy">
+              <div class="menu-heading">
+                <h3 class="menu-name">{product.name}</h3>
+                <span class="menu-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <p class="menu-description">{product.description}</p>
+              <WhatsAppLink
+                label={favoritesContent.productCta}
+                message={`Halo D'titans Food, saya ingin bertanya tentang *${product.name}*. Apakah sedang tersedia?`}
+                variant="text"
+                class="menu-cta"
+                ariaLabel={`Tanyakan menu ini: ${product.name} via WhatsApp`}
+              />
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

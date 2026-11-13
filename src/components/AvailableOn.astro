@@ -1,0 +1,62 @@
+---
+import { availableContent } from "../data/content";
+import { foodApps, isConfiguredUrl } from "../data/site";
+---
+
+<section id="tersedia" class="available" aria-labelledby="available-title">
+  <div class="shell available-inner">
+    <div class="available-copy">
+      <h2 id="available-title" class="available-title">
+        {availableContent.heading.lead} <em>{availableContent.heading.accent}</em>
+      </h2>
+      <p>{availableContent.intro}</p>
+    </div>
+
+    <ul class="available-row" aria-label="Platform pesan antar">
+      {
+        foodApps.map((app) => {
+          const isLive = isConfiguredUrl(app.href);
+          return (
+            <li>
+              {isLive ? (
+                <a
+                  href={app.href}
+                  class="platform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={app.logo}
+                    alt=""
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="platform-name">{app.name}</span>
+                </a>
+              ) : (
+                <div class="platform" aria-disabled="true">
+                  <img
+                    src={app.logo}
+                    alt=""
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="platform-name">
+                    {app.name}
+                    <span class="platform-note">{app.note}</span>
+                  </span>
+                </div>
+              )}
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <p class="available-note">{availableContent.note}</p>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+
+import WhatsAppLink from "./WhatsAppLink.astro";
+import { cateringContent } from "../data/content";
+import { services } from "../data/services";
+---
+
+<section id="katering" class="section catering" aria-labelledby="catering-title">
+  <div class="shell">
+    <div class="catering-head">
+      <h2 id="catering-title" class="display-lg catering-title">
+        {cateringContent.heading.lead} <em>{cateringContent.heading.accent}</em>
+      </h2>
+      <p class="catering-intro">{cateringContent.intro}</p>
+    </div>
+
+    <div class="catering-grid">
+      {
+        services.map((service) => (
+          <article class="service-item">
+            <figure class="service-photo">
+              <Image
+                src={service.image}
+                alt={service.alt}
+                widths={[420, 640, 900]}
+                sizes="(min-width: 768px) 30vw, 88vw"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="service-copy">
+              <h3 class="service-name">{service.name}</h3>
+              <p class="service-description">{service.description}</p>
+              {service.credit && (
+                <p class="photo-credit">
+                  <a href={service.credit.href} target="_blank" rel="noopener noreferrer">
+                    {service.credit.label}
+                  </a>
+                </p>
+              )}
+              <WhatsAppLink
+                label={cateringContent.ctaLabel}
+                message={`Halo D'titans Food, saya ingin bertanya tentang layanan *${service.name}*. Boleh dibantu detailnya?`}
+                variant="text-light"
+                class="service-cta"
+                ariaLabel={`Tanyakan kategori ini: ${service.name} via WhatsApp`}
+              />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="catering-note">{cateringContent.note}</p>
+  </div>
+</section>
